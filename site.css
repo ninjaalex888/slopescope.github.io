@@ -34,3 +34,8 @@ h3 {
 	padding: 15px;
 }
 
+@media only screen and (max-width: 480px) {
+	#header-logo{
+		margin-top: none;
+	}
+}
