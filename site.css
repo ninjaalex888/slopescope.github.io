@@ -4,8 +4,22 @@ body {
 	height: 100%;
 }
 
+header {
+	padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #eee;
+}
+
 h3 {
 	font-size: 28px !important;
+}
+
+#header-logo {
+	max-width: 300px; 
+	max-height: 300px; 
+	margin-top:-70px
 }
 
 #about {
@@ -18,7 +32,5 @@ h3 {
 
 #img-demo {
 	padding: 15px;
-	max-width: 500px; 
-	max-height: 500px;
 }
 
