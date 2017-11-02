@@ -1,8 +1,23 @@
 body {
+	font-family: verdana;
 	background-color: #333 !important;
 	height: 100%;
+}
+
+h3 {
+	font-size: 28px !important;
+}
+
+#about {
+	font-size: 18px;
 }
 
 #contact {
 	text-align: center;
 }
+
+#img-demo {
+	max-width: 500px; 
+	max-height: 500px;
+}
+
