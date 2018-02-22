@@ -8,10 +8,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-img {
+  .no-bottom-margin {
+    margin-bottom: 0;
+  }
+  img {
     max-width: 100%;
     height: auto;
-}
+  }
+
+  #top {
+    background-color: grey;
+  }
 </style>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -29,30 +36,18 @@ img {
 
 <body>
 
-<div class="container">
-
 	<link href="site.css" rel="stylesheet" type="text/css">
 
-	<div class="jumbotron">
-
-
-		<h1>SlopeScope <img src="SlopeScopeLogo.png" align="right" id="header-logo"> </h1>
-		<p></p>
-
-<<<<<<< HEAD
-		<p>Trail Maps for Modern Times  </p>
-=======
-		<p>Ski Map</p>
->>>>>>> bdd26046a1adb37aea3f5194af604a78967bac48
-
+	<div id = "top" class="jumbotron no-bottom-margin">
+    <div class ="container">
+      <h1 style = "color:black";>SlopeScope <img src="SlopeScopeLogo.png" align="right" id="header-logo"> </h1>
+      <p style = "color:black";>Trail Maps for Modern Times  </p>
+    </div>
 	</div>
 
-	<div class="panel panel-default">
-	  <div class="panel-heading">
-	    <h3 class="panel-title">About</h3>
-	  </div>
-
-	  <div class="panel-body" id="about">
+	<div class="jumbotron no-bottom-margin">
+    <container>
+	    <h3 style = "margin-bottom: 20px;"class="panel-title">About</h3>
 	    <p>
         In an age of rapidly progressing technology, trail maps have remained stagnant since their inception.
         Take a look at the website for your favorite ski resort and you will find a PDF version of the trail map.
@@ -74,15 +69,10 @@ img {
       At SlopeScope we know that the trail map can be a crucial first step in finding the perfect runs
       and we hope to provide users with as much information as possible before they make their decision!
     </p>
-
-
-	  </div>
+  </container>
 	</div>
 
-  <div class="w3-container">
-    <p>
-      <img src = "SlopeScopeMockImage1.png"</img>
-    </p>
+  <img src = "SlopeScopeMockImage1.png"</img>
   </div>
 
 
@@ -103,8 +93,7 @@ img {
 	    Email: alsh5546@colorado.edu
 
 	  </div>
-	</div>
-
+    </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
