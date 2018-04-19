@@ -1,0 +1,8 @@
+Features to Add:
+1. Trail maps (add interactivity): static images
+2. Base: scrape
+3. 24 hour snowfall: scrape
+4. 48 hour snowfall: scrape
+5. Distance from current location to resort: some kind of maps api
+6. Current weather: weather api
+7. Future weather: weather api
