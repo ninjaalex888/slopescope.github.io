@@ -3,6 +3,6 @@ Features to Add:
 2. Base: scrape
 3. 24 hour snowfall: scrape
 4. 48 hour snowfall: scrape
-5. Distance from current location to resort: some kind of maps api
+5. Distance from current location to resort: some kind of maps api (google maps embed or something like that might work)
 6. Current weather: weather api
 7. Future weather: weather api
