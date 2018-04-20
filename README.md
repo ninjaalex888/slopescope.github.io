@@ -4,7 +4,9 @@
 
 Install Flask with:
 
--pip install flask
+-pip install flask (or pip3 if using python3)
+-pip install bs4
+-pip install requests
 
 <h3>Run Instructions:</h3>
 

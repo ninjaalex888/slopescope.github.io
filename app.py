@@ -9,7 +9,11 @@ def scrape():
     r = requests.get(url)
     soup = BeautifulSoup(r.text, "html.parser")
     for elem in soup(text=re.compile('Base')):
-        if len(elem) == 4:
+    	print("test \n")
+    	print(elem)
+    	print("test \n")
+
+    	if len(elem) == 4:
             return elem.parent.findPrevious('div', {"class":"ab-condition_value"}).text
 
 app = Flask(__name__)
