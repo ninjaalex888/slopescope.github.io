@@ -10,6 +10,7 @@ def scrape():
     soup = BeautifulSoup(r.text, "html.parser")
     for elem in soup(text=re.compile('Base')):
     	print("test \n")
+
     	print(elem)
     	print("test \n")
 

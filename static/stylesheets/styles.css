@@ -1,5 +1,18 @@
+body {
+	background-color: #e9ecef;
+}
+
+
 h1 {
   text-align: center;
+}
+
+#Breck {
+	padding-right: 20px;
+}
+
+#A-Basin {
+	padding-right: 20px;
 }
 
 #slopescope {
