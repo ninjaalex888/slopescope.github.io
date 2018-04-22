@@ -26,8 +26,8 @@
 		Resorts
 		</a>
 		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			<a class="dropdown-item" href="#">Anime Basin</a>
-			<a class="dropdown-item" href="#">Breck</a>
+			<a class="dropdown-item" href="#">Arapahoe Basin</a>
+			<a class="dropdown-item" href="#">Breckenridge</a>
 			<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#">Park City</a>
 			</div>
@@ -59,20 +59,21 @@
 
 
 	<div class="row">
-		<h2>Most Looked at Resorts </h2>
+		<h2>Resorts Currently Open in Your Area</h2>
 	</div>
 	<div class="row">
 		<!-- <div class="col-lg-4"> -->
 			<div id="A-Basin">
 				<h3>Arapahoe Basin</h3>
 				<img id="A-BasinMap" src="{{url_for('static', filename='ABasinTrailMap.png')}}" />
-				<p>Base Depth: {{base}}</p>
+				<p>Base Depth: {{aBayBase}}</p>
 			</div>
 		<!-- </div> -->
 		<!-- <div class="col-lg-4"> -->
-			<div id="Breck">
-				<h3>Breckenridge</h3>
-			    <img id="A-BasinMap" src="{{url_for('static', filename='BreckTrailMap.png')}}" />
+			<div id="Loveland">
+				<h3>Loveland</h3>
+			    <img id="LovelandMap" src="{{url_for('static', filename='LovelandMap.png')}}" />
+					<p>Base Depth: {{lovelandBase}}
 			</div>
 		<!-- </div> -->
 	</div>
