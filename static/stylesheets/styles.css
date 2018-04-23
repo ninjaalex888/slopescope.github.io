@@ -1,11 +1,38 @@
 body {
 	background-color: #e9ecef;
+	padding-bottom: 2px;
 }
 
 
 h1 {
   text-align: center;
 }
+
+.dropdown-menu.show {
+	width: 300px;
+}
+
+#Locator {
+	padding: 0px 25%;
+}
+
+#dropdown-country:hover {
+	background-color: #ffffff !important;
+}
+
+#dropdown-state:hover {
+	background-color: #ffffff !important;
+}
+
+#dropdown-state {
+	padding-left: 25%;
+}
+
+#dropdown-resort {
+	padding-left: 50%;
+}
+
+
 
 #Breck {
 	padding-right: 20px;
@@ -15,7 +42,7 @@ h1 {
 	padding-right: 20px;
 }
 
-#slopescope {
+#slopescope-icon {
   width: 90px;
 }
 
@@ -25,4 +52,9 @@ h1 {
 
 #LovelandMap {
   width: 500px;
+}
+
+#About {
+	display: block;
+	text-align: center;
 }

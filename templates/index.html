@@ -26,52 +26,72 @@
 		Resorts
 		</a>
 		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			<a class="dropdown-item" href="#">Arapahoe Basin</a>
-			<a class="dropdown-item" href="#">Breckenridge</a>
+			
+			<a id="dropdown-country" class="dropdown-item">United States</a>
+				<a id="dropdown-state" class="dropdown-item">Colorado</a>
+					<a id="dropdown-resort" class="dropdown-item" href="#">Arapahoe Basin</a>
+					<a id="dropdown-resort" class="dropdown-item" href="#">Breckenridge</a>
+			
 			<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#">Park City</a>
+			
+			<a id="dropdown-country" class="dropdown-item">Canada</a>
+
+			<div class="dropdown-divider"></div>
+			
+			<a id="dropdown-country" class="dropdown-item">Europe</a>
 			</div>
 			</li>
 			<!-- <li class="nav-item">
 			<a class="nav-link disabled" href="#">Disabled</a>
 			</li> -->
 			</ul>
+			<!-- optional search -->
 			<!-- <form class="form-inline my-2 my-lg-0">
 			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form> -->
-			<img id="slopescope" src="{{url_for('static', filename='SlopeScopeLogo_cropped.png')}}" /></img>
+			<img id="slopescope-icon" src="{{url_for('static', filename='SlopeScopeLogo_cropped.png')}}" /></img>
 		</div>
 	</nav>
-	<!-- <img id="slopescope" src="{{url_for('static', filename='SlopeScopeLogo.png')}}" /></img> -->
-  	<!-- <h1>Slope Scope</h1> -->
 
 <div class="container">
 	<div class = "row">
 		<div class="jumbotron">
 			<h1 class="display-4">Hello, welcome to SlopeScope!</h1>
 			<p class="lead">At SlopeScope we make it easy for you when it comes to deciding which mountain will have the best conditions and runs open based on your preferences.</p>
+
+
+
 			<!-- <hr class="my-4">
 			<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
 			<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
 		</div>
 	</div>
 
+	<div id="Locator" class="row">
+		<div class="input-group">
+	      <input type="text" class="form-control" placeholder="Search for resorts in your area...">
+	      <span class="input-group-btn">
+	        <button class="btn btn-default" type="button">Go!</button>
+	      </span>
+	    </div><!-- /input-group -->
+	</div>
 
-	<div class="row">
-		<h2>Resorts Currently Open in Your Area</h2>
+
+	<div class="row" style="padding-bottom:10px;">
+		<h3>Resorts Currently Open in Your Area</h3>
 	</div>
 	<div class="row">
 		<!-- <div class="col-lg-4"> -->
 			<div id="A-Basin">
-				<h3>Arapahoe Basin</h3>
+				<h4>Arapahoe Basin</h4>
 				<img id="A-BasinMap" src="{{url_for('static', filename='ABasinTrailMap.png')}}" />
 				<p>Base Depth: {{aBayBase}}</p>
 			</div>
 		<!-- </div> -->
 		<!-- <div class="col-lg-4"> -->
 			<div id="Loveland">
-				<h3>Loveland</h3>
+				<h4>Loveland</h4>
 			    <img id="LovelandMap" src="{{url_for('static', filename='LovelandMap.png')}}" />
 					<p>Base Depth: {{lovelandBase}}
 			</div>
@@ -79,6 +99,12 @@
 	</div>
 
 </div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div id="About" class="container">
+    SlopeScope LLC
+  </div>
+</nav>
 
 
 <!-- bootstrap jquery -->

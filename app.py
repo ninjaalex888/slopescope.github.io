@@ -33,7 +33,7 @@ app = Flask(__name__)
 def my_form_post(index):
     basin_base = scrape_abasin_base()
     loveland_base = scrape_loveland_base()
-    print loveland_base
+    print(loveland_base)
     return render_template('%s.html' % index, aBayBase=basin_base, lovelandBase = loveland_base)
 
 if __name__ == "__main__":
