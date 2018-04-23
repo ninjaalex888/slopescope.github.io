@@ -21,9 +21,6 @@
 		<li class="nav-item active">
 		<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 		</li>
-		<!-- <li class="nav-item">
-		<a class="nav-link" href="#">Link</a>
-		</li> -->
 		<li class="nav-item dropdown">
 		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Resorts
@@ -44,15 +41,7 @@
 			<a id="dropdown-country" class="dropdown-item">Europe</a>
 			</div>
 			</li>
-			<!-- <li class="nav-item">
-			<a class="nav-link disabled" href="#">Disabled</a>
-			</li> -->
 			</ul>
-			<!-- optional search -->
-			<!-- <form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form> -->
 			<img id="slopescope-icon" src="{{url_for('static', filename='SlopeScopeLogo_cropped.png')}}" >
 		</div>
 	</nav>
@@ -62,12 +51,6 @@
 		<div class="jumbotron">
 			<h1 class="display-4">Hello, welcome to SlopeScope!</h1>
 			<p class="lead">At SlopeScope we make it easy for you when it comes to deciding which mountain will have the best conditions and runs open based on your preferences.</p>
-
-
-
-			<!-- <hr class="my-4">
-			<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-			<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
 		</div>
 	</div>
 
@@ -85,7 +68,6 @@
 		<h3>Resorts Currently Open in Your Area</h3>
 	</div>
 	<div class="row">
-		<!-- <div class="col-lg-4"> -->
 			<div id="A-Basin">
 				<h4>Arapahoe Basin</h4>
 				<img id="A-BasinMap" src="{{url_for('static', filename='ABasinTrailMap.png')}}" />
@@ -103,8 +85,43 @@
 					<p>Driving time*: x minutes</p>
 			</div>
 	</div>
-
 </div>
+
+<div id = "userLocation"></div>
+
+<script>
+var showLocation = document.getElementById("userLocation");
+var lat, lon;
+
+function postCoords(xcord, ycord) {
+	var req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		if (this.readyState ==4 && this.status == 200) {
+			document.getElementById("userLocation").innerHTML = this.responseText;
+	}
+};
+req.open("POST", "/index/", true);
+req.send(xcord);
+}
+
+function getLocation() {
+	if(navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(showCoordinates);
+	} else {
+		showLocation.innerHTML = "Your browser does not support this feature.";
+	}
+}
+
+function showCoordinates(position) {
+	lat=position.coords.latitude;
+	lon=position.coords.longitude;
+	postCoords(lat, lon);
+}
+
+document.body.onload = function() {
+	getLocation();
+};
+</script>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div id="About" class="container">
