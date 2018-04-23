@@ -12,6 +12,7 @@ def get_driving_times():
     basin_hours = time / 3600
     basin_minutes = (time % 3600) / 60
     basin_seconds = time % 60
+    # time = ("%.2f" % time) limit decimals
 
     return basin_hours, basin_minutes
 
