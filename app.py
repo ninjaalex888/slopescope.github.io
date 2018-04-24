@@ -11,12 +11,24 @@ def get_driving_times(xcord, ycord):
     r = requests.post("http://www.mapquestapi.com/directions/v2/routematrix?key=ind9QjhJrKLehF3GGrIoF4UnUtUw14xm", data=body)
     output=json.loads(r.content)
     time = output['time'][1]
-    basin_hours = time / 3600
-    basin_minutes = (time % 3600) / 60
-    basin_seconds = time % 60
-    # time = ("%.2f" % time) limit decimals
+    hours = time / 3600
+    minutes = (time % 3600) / 60
+    seconds = time % 60
 
-    return basin_hours, basin_minutes
+    return str(hours) + " Hours and " + str(minutes) + " Minutes"
+
+def get_driving_times_loveland(xcord, ycord):
+    coords = str(xcord)+", "+str(ycord)
+    body = json.dumps({"locations": [coords, "Exit 216  Interstate 70 Georgetown, CO 80444"]})
+    print body
+    r = requests.post("http://www.mapquestapi.com/directions/v2/routematrix?key=ind9QjhJrKLehF3GGrIoF4UnUtUw14xm", data=body)
+    output=json.loads(r.content)
+    time = output['time'][1]
+    hours = time / 3600
+    minutes = (time % 3600) / 60
+    seconds = time % 60
+
+    return str(hours) + " Hours and " + str(minutes) + " Minutes"
 
 
 def scrape_loveland():
@@ -64,15 +76,17 @@ app = Flask(__name__)
 @app.route('/<string:index>/', methods=['GET','POST'])
 def my_form_post(index):
     if request.method =='POST':
-        print request.data
-        return request.data
-    basin_hours, basin_minutes = get_driving_times(40, -105)
+        dict_data = json.loads(request.data)
+        if dict_data['resort'] == 'basin':
+            return get_driving_times(float(dict_data['xcord']), float(dict_data['ycord']))
+        elif dict_data['resort'] == 'loveland':
+            print "Chaaaaaaaaaaa"
+            return get_driving_times_loveland(float(dict_data['xcord']), float(dict_data['ycord']))
     basin_base, basin_twenty_four, basin_seventy_two = scrape_abasin()
     loveland_base, loveland_twenty_four, loveland_seventy_two = scrape_loveland()
     return render_template('%s.html' % index, aBayBase=basin_base, lovelandBase = loveland_base,
                            lovelandTwentyFour = loveland_twenty_four,lovelandSeventyTwo = loveland_seventy_two,
-                           aBasinTwentyFour = basin_twenty_four, aBasinSeventyTwo = basin_seventy_two,
-                           basinHours = basin_hours, basinMinutes = basin_minutes)
+                           aBasinTwentyFour = basin_twenty_four, aBasinSeventyTwo = basin_seventy_two)
 
 
 if __name__ == "__main__":

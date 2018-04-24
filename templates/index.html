@@ -32,9 +32,9 @@
 				<a id="dropdown-state" class="dropdown-item">Colorado</a>
 					<a id="dropdown-resort" class="dropdown-item" href="#">Arapahoe Basin</a>
 					<a id="dropdown-resort" class="dropdown-item" href="#">Breckenridge</a>
-				
-				
-				
+
+
+
 				<a id="dropdown-state" class="dropdown-item">Utah (coming soon)</a>
 				<a id="dropdown-state" class="dropdown-item">Vermont (coming soon)</a>
 				<a id="dropdown-state" class="dropdown-item">Washington (coming soon)</a>
@@ -80,7 +80,7 @@
 				<p>Base Depth: {{aBayBase}}</p>
 				<p>24 Hour Snowfall: {{aBasinTwentyFour}}</p>
 				<p>72 Hour Snowfall: {{aBasinSeventyTwo}}</p>
-				<p>Driving time: {{basinHours}} Hours {{basinMinutes}} Minutes</p>
+				<div class="loader" id = "basinDrive"></div>
 			</div>
 			<div id="Loveland">
 				<h4>Loveland</h4>
@@ -88,7 +88,7 @@
 					<p>Base Depth: {{lovelandBase}}</p>
 					<p>24 Hour Snowfall: {{lovelandTwentyFour}}</p>
 					<p>72 Hour Snowfall: {{lovelandSeventyTwo}}</p>
-					<p>Driving time*: x minutes</p>
+					<div class = "loader" id = "lovelandDrive"></div>
 			</div>
 	</div>
 </div>
@@ -96,18 +96,35 @@
 <div id = "userLocation"></div>
 
 <script>
-var showLocation = document.getElementById("userLocation");
+var showLocation = document.getElementById("basinDrive");
 var lat, lon;
 
-function postCoords(xcord, ycord) {
+function postBasinCoords(xcord, ycord) {
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
 		if (this.readyState ==4 && this.status == 200) {
-			document.getElementById("userLocation").innerHTML = this.responseText;
+			document.getElementById("basinDrive").innerHTML = "Distance From Your Location: " + this.responseText;
+			document.getElementById("basinDrive").classList.remove("loader");
 	}
 };
 req.open("POST", "/index/", true);
-req.send(xcord);
+
+var data = {'xcord':String(xcord), 'ycord':String(ycord), 'resort': 'basin'};
+req.send(JSON.stringify(data));
+}
+
+function postLovelandCoords(xcord, ycord) {
+	var req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("lovelandDrive").innerHTML = "Distance From Your Location: " + this.responseText;
+			document.getElementById("lovelandDrive").classList.remove("loader");
+		}
+	};
+	req.open("POST", "/index/", true);
+
+	var data = {'xcord': String(xcord), 'ycord':String(ycord), 'resort': 'loveland'};
+	req.send(JSON.stringify(data));
 }
 
 function getLocation() {
@@ -121,7 +138,8 @@ function getLocation() {
 function showCoordinates(position) {
 	lat=position.coords.latitude;
 	lon=position.coords.longitude;
-	postCoords(lat, lon);
+	postBasinCoords(lat, lon);
+	postLovelandCoords(lat, lon);
 }
 
 document.body.onload = function() {
