@@ -21,7 +21,8 @@ def get_driving_times(xcord, ycord):
 def get_driving_times_loveland(xcord, ycord):
     coords = str(xcord)+", "+str(ycord)
     body = json.dumps({"locations": [coords, "Exit 216  Interstate 70 Georgetown, CO 80444"]})
-    print body
+    # print body
+    print(body)
     r = requests.post("http://www.mapquestapi.com/directions/v2/routematrix?key=ind9QjhJrKLehF3GGrIoF4UnUtUw14xm", data=body)
     output=json.loads(r.content)
     time = output['time'][1]
@@ -74,7 +75,7 @@ def scrape_abasin():
 
 app = Flask(__name__)
 
-@app.route('/')
+# @app.route('/')
 @app.route('/<string:index>/', methods=['GET','POST'])
 def my_form_post(index):
     if request.method =='POST':
@@ -82,7 +83,7 @@ def my_form_post(index):
         if dict_data['resort'] == 'basin':
             return get_driving_times(float(dict_data['xcord']), float(dict_data['ycord']))
         elif dict_data['resort'] == 'loveland':
-            print "Chaaaaaaaaaaa"
+            # print "Chaaaaaaaaaaa"
             return get_driving_times_loveland(float(dict_data['xcord']), float(dict_data['ycord']))
     basin_base, basin_twenty_four, basin_seventy_two = scrape_abasin()
     loveland_base, loveland_twenty_four, loveland_seventy_two = scrape_loveland()
