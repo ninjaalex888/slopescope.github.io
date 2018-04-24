@@ -77,5 +77,11 @@ def my_form_post(index):
                            basinHours = basin_hours, basinMinutes = basin_minutes)
 
 
+@app.route('/')
+@app.route('/index')
+def index():
+    return render_template('index.html')
+
 if __name__ == "__main__":
-    app.run(debug=True)
+	app.run()
+    # app.run(debug=True)
