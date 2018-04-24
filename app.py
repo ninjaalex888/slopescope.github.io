@@ -8,7 +8,7 @@ def get_driving_times(xcord, ycord):
     coords = str(xcord)+", "+str(ycord)
     body = json.dumps({"locations": [coords, "28194 U.S. 6, Keystone, CO 80435"]})
     # print body
-    print(body)
+    # print(body)
     r = requests.post("http://www.mapquestapi.com/directions/v2/routematrix?key=ind9QjhJrKLehF3GGrIoF4UnUtUw14xm", data=body)
     output=json.loads(r.content)
     time = output['time'][1]
@@ -66,7 +66,7 @@ app = Flask(__name__)
 def my_form_post(index):
     if request.method =='POST':
         # print request.data
-        print(request.data)
+        # print(request.data)
         return request.data
     basin_hours, basin_minutes = get_driving_times(40, -105)
     basin_base, basin_twenty_four, basin_seventy_two = scrape_abasin()
