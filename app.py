@@ -90,6 +90,11 @@ def my_form_post(index):
                            lovelandTwentyFour = loveland_twenty_four,lovelandSeventyTwo = loveland_seventy_two,
                            aBasinTwentyFour = basin_twenty_four, aBasinSeventyTwo = basin_seventy_two)
 
+@app.route('/')
+@app.route('/index')
+def index():
+    return render_template('index.html')
+
 if __name__ == "__main__":
     app.run()
     # app.run(debug=True)
