@@ -79,3 +79,5 @@ def my_form_post(index):
 
 if __name__ == "__main__":
     app.run(debug=True)
+    # Activate Django-Heroku.
+	django_heroku.settings(locals())
