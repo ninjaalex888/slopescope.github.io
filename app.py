@@ -82,7 +82,6 @@ def my_form_post(index):
         if dict_data['resort'] == 'basin':
             return get_driving_times(float(dict_data['xcord']), float(dict_data['ycord']))
         elif dict_data['resort'] == 'loveland':
-            print "Chaaaaaaaaaaa"
             return get_driving_times_loveland(float(dict_data['xcord']), float(dict_data['ycord']))
     basin_base, basin_twenty_four, basin_seventy_two = scrape_abasin()
     loveland_base, loveland_twenty_four, loveland_seventy_two = scrape_loveland()

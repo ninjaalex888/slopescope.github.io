@@ -48,7 +48,7 @@
 			</div>
 			</li>
 			</ul>
-			<img id="slopescope-icon" src="{{url_for('static', filename='SlopeScopeLogo_cropped.png')}}" >
+			<img id="slopescope-icon" src="{{url_for('static', filename='slopescopelogo_cropped.png')}}" >
 		</div>
 	</nav>
 
@@ -69,25 +69,28 @@
 	    </div><!-- /input-group -->
 	</div>
 
-
 	<div class="row" style="padding-bottom:10px;">
-		<h3>Resorts Currently Open in Your Area</h3>
+		<h2>Select Resorts to Compare</h2>
 	</div>
 	<div class="row">
-			<div id="A-Basin">
-				<h4>Arapahoe Basin</h4>
+		<button onclick="displayBasin()">Arapahoe Basin</button>
+		<button onclick="displayLoveland()">Loveland</button>
+	</div>
+	<div class="row">
+			<div id="A-Basin" style="display:none;">
+				<h3>Arapahoe Basin</h3>
 				<img id="A-BasinMap" src="{{url_for('static', filename='ABasinTrailMap.png')}}" />
-				<p>Base Depth: {{aBayBase}}</p>
-				<p>24 Hour Snowfall: {{aBasinTwentyFour}}</p>
-				<p>72 Hour Snowfall: {{aBasinSeventyTwo}}</p>
+				<p>Base Depth: <span id = "data">{{aBayBase}}</span></p>
+				<p>24 Hour Snowfall: <span id = "data">{{aBasinTwentyFour}}</span></p>
+				<p>72 Hour Snowfall: <span id = "data">{{aBasinSeventyTwo}}</span></p>
 				<div class="loader" id = "basinDrive"></div>
 			</div>
-			<div id="Loveland">
-				<h4>Loveland</h4>
+			<div id="Loveland" style="display:none;">
+				<h3>Loveland</h3>
 			    <img id="LovelandMap" src="{{url_for('static', filename='LovelandMap.png')}}" />
-					<p>Base Depth: {{lovelandBase}}</p>
-					<p>24 Hour Snowfall: {{lovelandTwentyFour}}</p>
-					<p>72 Hour Snowfall: {{lovelandSeventyTwo}}</p>
+					<p>Base Depth: <span id = "data">{{lovelandBase}}</span></p>
+					<p>24 Hour Snowfall: <span id = "data">{{lovelandTwentyFour}}</span></p>
+					<p>72 Hour Snowfall: <span id = "data">{{lovelandSeventyTwo}}</span></p>
 					<div class = "loader" id = "lovelandDrive"></div>
 			</div>
 	</div>
@@ -98,6 +101,14 @@
 <script>
 var showLocation = document.getElementById("basinDrive");
 var lat, lon;
+
+function displayBasin() {
+	document.getElementById("A-Basin").style.display="";
+}
+
+function displayLoveland() {
+	document.getElementById("Loveland").style.display="";
+}
 
 function postBasinCoords(xcord, ycord) {
 	var req = new XMLHttpRequest();
