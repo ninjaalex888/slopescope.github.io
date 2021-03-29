@@ -55,7 +55,7 @@ jupyter_console = "==5.1.0"
 jupyter_core = "==4.2.1"
 MarkupSafe = "==0.23"
 prompt_toolkit = "==1.0.13"
-Pygments = "==2.2.0"
+Pygments = "==2.7.4"
 Werkzeug = "==0.14.1"
 
 [dev-packages]
